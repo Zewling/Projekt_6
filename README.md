@@ -30,6 +30,6 @@ def browser():
         browser = p.chromium.launch(headless=False, slow_mo=500)
         yield browser
         browser.close()
-
+```
 
 2. Pokud chceš vidět detail jednotlivých testů pak v terminálu spusť testy pomocí 'pytest -v test_saucedemo.py'
