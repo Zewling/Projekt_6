@@ -22,11 +22,14 @@ Testy pokrývají přihlášení, navigaci v menu, přidání produktu do koší
 ## Zajímavost
 1. Pokudeš budeš chtít vidět co se na stránce děje pak uprav v conftest.py fixture s funkcí browser - přidáš headless=False, slow_mo=500
 
-@pytest.fixture(scope="session")
+```python
+@pytest.fixture(scope="session")  # scope="session" znamená, že se spustí jen jednou pro všechny testy
 def browser():
+    # Spuštění Playwrightu
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False, slow_mo=300)
+        browser = p.chromium.launch(headless=False, slow_mo=500)
         yield browser
         browser.close()
+
 
 2. Pokud chceš vidět detail jednotlivých testů pak v terminálu spusť testy pomocí 'pytest -v test_saucedemo.py'
